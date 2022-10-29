@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            
+            /*
+            * { 
+                color: rebeccapurple;
+                font-family: Georgia, cursive;
+            }
+
+            h1 {color: red; text-decoration:underline dotted green;}
+            h2 {color: rgb(183, 48, 220);text-decoration: underline;}
+            h3 {color: rgb(54, 178, 161);text-shadow: 3px 1px 1px black;}
+            hr {background-color:black ; color: white;}
+            img {cursor: pointer; margin-left: 100px; }
+            div { border: 3px red solid; height: 100px; width: 100px;
+                  border-radius: 50px; background-color: pink;} 
+            #hrid { border: 1px; color: brown;}                   
+            */
+           
+/*       
+            #div2 {background-color: yellow;}
+            #div2 .apple { color:blue;}
+            #div2 > .apple { text-decoration: underline rgb(149, 255, 0);}   /* div2의 자식인 클래스 apple를 선택함 
+           .apple + p { background-color: aquamarine;}      /* 형제 선택자
+
+            .b + span { text-decoration: underline;} /* 인접형제선택자, 바로 다음 나오는 친구를 선택
+           .b ~ span { color: rgb(25, 143, 5);}  b스판 뒤 모든 형제  
+        
+        div {width: 100px; height: 100px; background-color: yellow;}
+        div:hover { cursor: pointer; background-color: blue;}
+        a { color: black;}
+        p:active{color: red;}                   /*클릭, 활성화 했을때
+        input:focus {background-color: blue;}   /*입력창에 포커스 상태(=클릭) 기본적으로 포커스가 걸려있음
+        a:link{ color: rgb(233, 219, 23);}   /*방문하기 전 상태
+        a:visited { color: green;}           /*방문한 상태
+*/
+        .fruits span:first-child {background-color: aquamarine;} /*첫번째 자식이 스판이면, 이란 뜻 */
+        .fruits h3:last-child { background-color: blanchedalmond;}
+        .fruits *:nth-child(2){color: blueviolet;} /* (2)두번째 */
+        .fruits *:not(span) { color: red;} /*오렌지 망고 사과는 span이 아니여서 선택됨 */
+        </style>
+    </head>
+    <body>
+        <div class="fruits">
+            <span>딸기</span>
+            <span>수박</span>
+            <div>오렌지</div>
+            <p>망고</p>
+            <h3>사과</h3>
+        </div>
+
+
+
+        <!-- <div></div>
+        <a href="http://naver.com">a태그1</a>
+        <a href="https://search.naver.com/search.naver?sm=tab_hty.top&where=nexearch&query=%EB%B2%88%EC%97%AD%EA%B8%B0&oquery=%EB%A0%88%EB%AA%A8%EB%84%A4%EC%9D%B4%EB%93%9C+%ED%9A%A8%EA%B3%BC&tqi=h1ypdwprvhGssR6WLKKssssss6N-410601">a태그2</a>
+        <p>p태그</p>
+        <input type="text"> -->
+    <!--
+        <div>
+            <span class="a">-1</span>
+            <span>0</span>
+            <span>1</span>
+            <span class="b">2</span>
+            <span>3</span>
+            <span>4</span>
+        </div>
+        
+        
+        <div>
+            <div id="div2">
+                <p class="apple">1</p>
+                <p class="apple">2</p>
+                <div>
+                    <p class="apple">3</p>
+                </div>
+                <p>4</p>
+            </div>
+            <p class="apple">5</p>
+            <p>6</p>
+        </div>
+    -->    
+
+
+    <!--
+        <h1 class="deco">h1</h1>
+        <h2 class="red deco">h2</h2>
+        <h3 class="red">h3</h3>
+        <hr id="hrid">
+        <p>p 1</p>
+        <p>p2</p>
+        <img src="1.jpg">
+        <div></div>
+    -->
+    </body>
+
+</html>
