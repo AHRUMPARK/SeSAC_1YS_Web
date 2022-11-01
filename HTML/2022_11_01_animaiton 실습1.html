@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            div { 
+                border-radius: 25px;
+                width: 50px;
+                height: 50px;
+                background-color: rgb(255, 163, 215);
+                position: relative;
+                animation-name: anim;
+                animation-duration: 3s;
+                animation-iteration-count: 6;
+                animation-delay: 1s;
+                Animation-timing-function: ease;
+            }
+            
+            @keyframes anim {
+                
+                0%  { left: 0px; bottom: 0px; top: 0px;}
+                25% { left: 100px; bottom: 0px; top: 0px;}
+                50% { left: 100px; bottom: -100px; top: 100px;}
+                75% { left: 0px; bottom: -100px; top: 100px;}
+                100% { left: 0px; bottom: -100px; top: 0px;} 
+            }
+        
+        </style>
+    </head>
+    <body>
+       <div></div>
+       
+    </body>
+</html>
