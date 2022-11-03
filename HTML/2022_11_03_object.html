@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script>
+            var cat = {
+                name: '나비',            //객체
+                age: 1,                 // 속성 age, 함수 mew
+                mew: function() {
+                    return "야옹";
+                }
+            }
+            console.log( cat );
+            console.log( cat.name );
+            console.log( cat.mew() );     // .으로 켓이라는 객체에서 mew라는 얘를 찾는다. 함수다보니 ()를 붙이고 실행시키라는 의미
+            
+            function hello() {
+                return "안녕";
+            }
+            // function hi() {
+            //     console.log("hi");       
+            // }
+            // console.log ( hi() );         //hi라는 함수를 실행하고 콘솔로그를 출력해라
+            // var a = hello();
+            // console.log ( hello() );      //
+
+            var arr1 = [1,2,3,'a','b','c'];
+            var arr2 = new Array(1,2,3,'a','b','c');
+            console.log( arr1 );
+            console.log( arr1[0]);
+            console.log( arr1.indexOf('a'));  //arr1의 인대스의 a가 몇인가
+            console.log( "length : " + arr1.length ); //6이라는속성..?
+            arr1.push('d'); //가장 마지막에 요소 추가
+            console.log( arr1 );
+            arr1.pop(); // 가장 마지막 요소 제거
+            console.log( arr1 );
+
+            arr1.unshift('0'); //가장 앞의 요소 추가
+            console.log(arr1);
+            arr1.shift(); //가장 앞의 요소 제거
+            console.log(arr1);  //unshift,shift는 앞의 요소가 제거추가로 밀리기때문에 전체적 인덱스값이 다른 결과가 나온다
+                
+            //딕셔너리는 인덱스라는 개념이 없기때문에, 키라는 값으로 가져와야한다. 딕셔너리는 쌍으로 이루어져있는데 구분하는게 키다
+            //배열은 인덱스 딕셔너리는 키로 가져온다 외워!
+            var me = {
+                    name: 'arum',
+                    birth: '0302'
+                };
+                //me라는 객체에 name, birth라는 값
+                console.log( me );
+                console.log( me["name"]);   //me라는 객체에서 name이라는 키값을 가져와라
+                console.log( me.name );     //위랑 동일한 결과가 나온다 같은방법이라고 봐도된다.
+                                            //console.log( arr1[2]);와 동일한 결과가 나온다? 리스트의 일종이라, 리스트 사용법도 사용가능하다.
+                me.gender = 'M';
+                me["age"] = 10;
+                console.log(me);
+
+                //정리
+                var ar = [1,2];
+                //배열에서 값을 가져올 때는 index를
+                console.log(ar[0]);
+
+                // new Date() //데이트 쓸때 이렇게 초기화 시킨다
+                // new Date(밀리초)
+                //      new Date(8000000); //값을 보내지 않으면, 지금 현시간 /값을 보내면 그때로부터 밀리초만큼 지난 날짜 
+                // new Date(년, 월, 일, 시, 분, 초, 밀리초)
+                //     new Date(16,5,25); // 1916년 5월 25일 00:0:00
+                //     new Date(20,) //ㅠㅠㅠㅠㅠ다못씀
+
+            
+            console.log("-------------------------");
+            var date = new Date();
+            console.log(date);
+
+            console.log( date.getYear() );   //1900년대말 숫자면, 1970년이면 70만 가져오겟지만, 2000년대와 구분하기위해 122 2022/ 22는 1922를 의미한다.
+            console.log( date.getMonth() );  //
+            console.log( date.getDate() );
+            console.log( date.getDay() );    //요일은 일요일부터 일월화수목금토 에서 몇번째 인덱스인지 반환, 오늘은 목요일이니 4인덱스를 반환한다.
+            console.log( date.getTime() );   //1975년도부터 밀리초 반환
+            console.log( date.getHours() );
+            
+            console.log("-------------------------");
+
+            console.log(Math.min());  // 전달받은 값중 최소값 반환, 아무것도 없으면 인피니티 반환
+            console.log(Math.min( -10, 2, 10)); //-10을 반환, 비교할 수 없는 문자가 들어갈 경우 NaN값 반환
+            console.log(Math.min(0,'a',5));
+
+            console.log(Math.max(-10,2,10)); //가장 최대값을 반환
+            
+            console.log(Math.random()); // 무작위수를 랜덤 반환
+            var min = 1; var max = 10;
+            console.log( Math.random() * (max-min) + min );  //최대값, 최소값을 구할때 수학적으로 모르겠으면 외워라.
+        
+            console.log( Math.round(1.2)); //첫번째? 자리에서 반올림하는 친구 1을 반환, 기본적으로 정수로 반환하기때문에 둘째자리에서 반환하고 싶거든.. 소수점을 정수로 만든다음 다시 소수점..
+            console.log( Math.round(-1.7));
+
+            console.log( Math.floor(1.9)); //내림과 올림을 의미, 정수(기준)로 만들어준다.
+            console.log( Math.ceil(1.1)); 
+
+                
+
+        </script>
+    </head>
+    <body>
+
+    </body>
+
+</html>

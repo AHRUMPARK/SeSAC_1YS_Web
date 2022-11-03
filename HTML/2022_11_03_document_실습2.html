@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Document_실습2</title>
+        <script>
+            
+            function add() {
+            var number = document.getElementsByTagName('tr').length;
+            console.log(number);
+            var table = document.querySelector("tbody");
+            var tr = document.createElement('tr');
+            var td1 = document.createElement('td');
+            var td2 = document.createElement('td'); //td태그를 쓸것
+            var td3 = document.createElement('td');
+            var td4 = document.createElement('td');
+            table.append(tr);
+
+            var date = new Date();
+                date.getFullYear();
+                date.getMonth();
+                date.getDate();
+                date.getDay();
+                date.getTime();
+                date.getHours();
+            
+            var name = document.getElementById("name");
+            var content = document.getElementById("content");
+            
+            td1.innerText = name.value;
+            td2.innerText = content.value;
+            td3.innerText = 
+                            date.getFullYear() + "-" +
+                            date.getMonth() + "-" +
+                            date.getDate() + " " +
+                            date.getHours() + ":" +
+                            date.getMinutes();
+            td4.innerText = number;
+            tr.append( td4, td1, td2, td3 );
+           
+           }
+
+        </script> 
+    </head>
+    <body>  
+        <form>
+            작성자 <input type="text" id="name"><br>
+            내용 <input type="text" id="content"><br><br>
+            <button type="button" onclick="add();">작성</button><br><br>
+
+            <table id="table" border=1 cellspacing="1" cellpadding="10" style="text-align:center;">
+                <tr id="tr">
+                    <td id="no_1">번호</td>
+                    <td >작성자</td>
+                    <td>내용</td>
+                    <td id="date">작성일</td>
+                </tr>
+
+            </table>
+        </form>
+    </body>
+</html>

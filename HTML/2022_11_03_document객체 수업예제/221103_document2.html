@@ -1,0 +1,48 @@
+<html>
+    <head> 
+        <script>
+            function imgChange() {
+                var tag = document.querySelector("img");
+                console.log( tag );
+                console.log( tag.src );
+                console.log( tag.width );
+                tag.src = "./img.jpg";
+            }
+            
+            function add() {
+                var li = document.createElement("li");
+                li.innerText = "새로운 li";
+                console.log( li );
+                
+                var ul = document.querySelector("ul");
+                // ul.append(li, "123");
+                ul.appendChild(li);
+            }
+            function remove() {
+                // 내 자신 선택해서 삭제하기
+                var li = document.querySelector("li");
+                li.remove();
+
+                // 부모 요소 선택해서 삭제하기
+                var ul = document.querySelector("ul");
+                var li2 = document.querySelector("li");
+                ul.removeChild(li2);
+                // console.log( li.parentElement);
+                // li.remove();
+                // li.parentElement.removeChild(li);
+                // 부모요소.removeChild(자식요소)
+            }
+        </script>
+    </head>
+
+    <body>
+        <img src="./cat.jpg" width="100" height="100">
+        <button type="button" onclick="imgChange()">이미지</button>
+
+        <ul>
+            <li>이름</li>
+        </ul>
+        <button type="button" onclick="add()">추가</button>
+        <button type="button" onclick="remove()">삭제</button>
+    </body>
+</html>

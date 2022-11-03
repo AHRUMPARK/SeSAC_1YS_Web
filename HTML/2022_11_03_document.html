@@ -1,0 +1,67 @@
+<!DOCTYPE html>>
+<html>
+    <head>
+        <title>Document</title>
+
+    </head>
+    <body>
+        <img src="./1.jpg" width="100" height="100">
+        <img src="./1.jpg" width="100" height="100">
+        <img src="./1.jpg" width="100" height="100">
+        <div id="div1">
+            <input type="text" id="input1" value="입력값">
+            <p class="css1">p1</p>
+            <p class="css1">p2</p>
+            <div>
+                <p class="css1">p3</p>
+            </div>
+            <button type="button" onclick="getData();">버튼</button>
+            <button type="button" onclick="getData2();">버튼</button>
+       </div> 
+
+       <script>
+        // console.log( document.documentElement ); //이문서의 모든 요소들을 가져옴
+        // console.log( document.head );             // 해드테그 가져오기
+        // console.log( document.title );            //타이틀 가져오기
+        // console.log( document.URL );              //지금 접속한 url가져오기
+        // console.log( document.domain );          //현재 접속한 도메인의 http빼고 naver.com 만 가져오는 것
+
+        
+        console.log(document.getElementById("input1")); //하나만 가져올 수 있다.
+        console.log(document.getElementsByClassName("css1")); // 얘는 여러개가 가져와짐(배열로)
+        console.log(document.getElementsByClassName("css1")[0]);//하나만 나타내고싶으면, 배열로 나타낼 수 있다. 가장 위에있는 0번째 인덱스 가져와라.(위에서 아래로 내려가는 순서라 맨위가 0)
+        console.log(document.getElementsByTagName("img")); //인덱스적 접근?
+
+        console.log(document.querySelector("#input1"));//하나의 함수에서 (선택자)를 가져오게 한다. id input1을 선택하겠다. 몇개가 있든 무조건 한개만 사용! => 선택자의 해당하는 친구중 가장 위의 친구를 선택한다.
+        console.log(document.querySelectorAll(".css1"));//모두 가져오고 싶을때 사용
+        console.log(document.querySelectorAll(".css1")[1]);//(배열은 인덱스로 접근 가능하다.)
+        //nodelist 콜렉션과 반대로 변화를 가져오지 않는 친구. html문서가 바뀌었을때 처음 가져왔던 친구가 노드리스트?
+
+       function getData() {                              
+        var input = document.getElementById("input1");
+        console.log( input.value );
+    }
+
+    function getData2(){
+        // var p1 = document.getElementsByClassName("css1")[0]; //input은 value가 존재하지만, p태그는 존재하지 않아서 오류가뜬다.
+        //위의 하나로된것을 두개로 아래 두줄 나눠보겠다
+        var pList = document.getElementsByClassName("css1"); //css1의 모든 얘들을 선택하는 변수
+        var p1 = pList[0]; // 변수 p1은 pList(css1의 모든 p태그 얘들)의 [0]번쨰, 즉 첫번째 p태그를 선택한다.
+        console.log(pList);
+        console.log( p1 );
+        console.log( p1.value );
+        console.log( p1.text );
+        console.log( p1.html );
+        console.log( p1.innerText );
+        console.log( p1.innerHTML );
+    
+        // p1.innerText = "P태그입니다." //P1태그에 내용을 삽입
+        p1.innerText = "<strong>p태그입니다.</strong>"; //태그자체와 글자로 읽히는 차이?..
+        p1.innerHTML = "<strong>p태그입니다.</strong>";
+
+    }
+    </script>
+
+
+    </body>
+</html>
