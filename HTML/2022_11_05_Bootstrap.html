@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap demo</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <!-- 밑의 버튼이 어떤 css구조인지 궁금하면 위의 링크를 봐라 -->
+ </head>
+  <body>
+    <h1>Hello, world!</h1>
+    <div class="row">
+        <div class="col bg-warning">1</div>
+        <div class="col bg-primary">2</div>
+        <div class="col bg-success">3</div>
+    </div>
+    <hr>
+    <div class="row">
+        <div class="col bg-warning">1</div>
+        <div class="col bg-primary">2</div>
+        <div class="col bg-success">3</div>
+        <div class="col bg-secondary">4</div>
+    </div>
+    <hr>
+     <!-- co1-숫자 1:3:2 비율로 보여주겟다. -->
+    <div class="row">
+        <div class="col-2 bg-warning">1</div>
+        <div class="col-6 bg-primary">2</div>
+        <div class="col-4 bg-success">3</div>
+    </div>
+    <hr>
+   <div class="row">
+        <!-- 해당 브레이크 포인트에 맞춰서 12를 주기로 함 -->
+        <!-- 기본적으로 2:1 이고 엠디 브레이크때 1:2로 바뀐다 lg포인트때 5:1 비율이 되는 것 -->
+       <div class="col-8 col-md-4 col-lg-10 bg-warning">1</div>
+       <div class="col-4 col-md-8 col-lg-2 bg-primary">2</div>
+   </div>
+
+   <!-- <div class="row">
+     class="col-12"라고 했기떄문에 크든 작든 화면을 다 차지 한다. 
+        <div class="col-12">
+            <img src="5.jpg" class="w-100">
+        </div>
+        <div class="col-12">
+            <p class="bg-secondary">이 이미지는 녹차입니다.</p>
+        </div>
+   </div> -->
+   <div class="row">
+    <!-- 이렇게 요소들의 위치를 브레이크 포인트를 통해서 설정이 가능하다 처음엔 밑으로 글이 내려가있고, 마지막엔 1:2비율이 된다. -->
+        <div class="col-12 col-sm-6 col-lg-4">
+            <img src="5.jpg" class="w-100">
+        </div>
+        <div class="col-12 col-sm-6 col-lg-8">
+            <p class="bg-secondary">이 이미지는 녹차입니다.</p>
+        </div>
+   </div>
+
+
+    <!--div class="d-block bg-warning" = d-block의 백그라운드 컬러-월닝(노랑색)으로 준다. 지금은 어떤크기에든 보인다. -->
+    <!-- d-sm-none을 추가하면, sm이라는 브레이크 포인트에 들어왔을때 사라지게 해라 d-block이 기본상태이다 -->
+    <!-- d-md-none 760px일때 디스플레이 상태가 none으로 바뀌는 것이다.
+    부트스트렙 홈페이지 레이아웃 중에 브레이크 포인트를 확인 할 수 있다. -->
+    <!-- 숨기고 싶으면 기본상태 d-none, d-md-block이상일때 블록으로 바뀌고 d-lg-none일때 다시 논상태
+    작은창엔 안보이다가 중간쯤에 보이다가 커지면 다시 사라지게 한다. -->
+    <div class="d-none d-md-block d-lg-none bg-warning">
+        div
+    </div>
+
+    <!-- class="d-flex justify-content-start" 이걸하면, 마진받은 외에는 커져버림 버튼이 height값이 없으면, 안됨  -->
+    <div class="d-flex justify-content-start">
+    <!-- btn부트스트렙 btn-primary 파란색 버튼을 사용하겟다 -->
+    <button type="button" class="btn btn-outline-primary" style="margin-top: 100px;">Primary</button> 
+    <button type="button" class="btn btn-secondary">Secondary</button>
+    <button type="button" class="btn btn-success">Success</button>
+    <button type="button" class="btn btn-danger">Danger</button>
+    <button type="button" class="btn btn-warning">Warning</button>
+    <button type="button" class="btn btn-info">Info</button>
+    <button type="button" class="btn btn-light">Light</button>
+    <button type="button" class="btn btn-dark">Dark</button>
+    <button type="button" class="btn btn-link">Link</button>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+</div>
+    
+    <div class="accordion" id="accordionExample">
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="headingOne">
+            <!-- 밑의 이 전체를 버튼으로 취급해서 어느 부분을 눌러도 버튼 취급하기 위함 -->
+            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+              코딩온 본사는 어디에 있나요?
+            </button>
+          </h2>
+          <!-- collapseOne의 기능을 봐라 show는 누르지 않아도 기본적으로 열려있는 하나의 상태를 셋팅하고 싶을때 쓴다. -->
+          <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+            <div class="accordion-body">
+                <!-- 내용은 바디 부분에 -->
+              <strong>저희 회사는 공덕에 있습니다.</strong>어쩌구 저쩌구
+            </div>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="headingTwo">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+              두번째 질문
+            </button>
+          </h2>
+          <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+            <div class="accordion-body">
+              <strong>부트스트렙</strong>신기하네요 
+            </div>
+        </div>
+
+      <!-- 이미지 슬라이드 -->
+      <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="true">
+        <div class="carousel-indicators">
+          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+        </div>
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <!-- 이미지 w-100 위드값임, 크기 변경 가능 50% -->
+            <!-- display-dlock 얘를 디스플레이 블록으로 하겠다/가 왜 중요하냐?  브레이크 포인트(화면의 크기 따라 조절 가능) -->
+            <img src="./1.jpg" class="d-block w-50" alt="...">
+          </div>
+          <div class="carousel-item">
+            <img src="./10.jpg" class="d-block w-100" alt="...">
+          </div>
+          <div class="carousel-item">
+            <img src="./11.jpg" class="d-block w-100" alt="...">
+          </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
+
+
+    </body>
+</html>

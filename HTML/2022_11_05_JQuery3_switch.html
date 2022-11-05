@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- 제이쿼리 홈페이지에서  minified 를 복사 붙이기 -->
+      <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+   
+      <script SRC="./jquery-ui-1.13.2.custom/jquery-ui.js"></script>
+      <link href="./jquery-ui-1.13.2.custom/jquery-ui.css">
+    <!-- 클래스를 동적으로 추가하고 싶을때 switch클레스, 제이쿼리 기본등록이 안되어있어서 제이쿼리 ui를 추가해서 사용한다 -->
+   <style>
+     div { width: 100px; height: 100px;}
+     .first { background-color: red;}
+     .second { background-color: yellow;}
+     .third { background-color: green;}
+     .sizeup { font-size: 30px;}
+   </style>
+   <script>
+    // JQuery에서 switch 사용해보기 동적으로 하는 스위치 클레스 기능들
+    // 각각 클레스를 a -> b로 바꿀 것이다.
+    // .switchClass 앞 클래스가 뒤 클래스로 서서히 천천히 바뀜
+    function second(){
+        $("div").switchClass("first", "second");
+    }
+    function sizeup(){
+        $("div").switchClass("second", "sizeup", 1000);
+    }
+    function third(){
+        $("div").switchClass("sizeup", "third");
+    }
+    function first(){
+        $("div").switchClass("third", "first");
+    } 
+   </script>
+ </head>
+  <body>
+    <div class="first">div</div>
+    <button type="button" onclick="second()">first -> second</button>
+    <button type="button" onclick="sizeup()">second -> sizeup</button>
+    <button type="button" onclick="third()">sizeup -> third</button>
+    <button type="button" onclick="first()">third -> first</button>
+  </body>
+</html>
+
+switch

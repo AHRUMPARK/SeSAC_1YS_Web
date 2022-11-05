@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- 제이쿼리 홈페이지에서  minified 를 복사 붙이기 -->
+      <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+   
+   <style>
+      .class {
+        background-color: pink;
+        font-size: bold;
+      }
+   </style>
+   <script>
+      // addClass는 class속성을 추가하는 것
+      function addClass(){
+          $("div").addClass("class");
+      }
+      // class 속성을 지우는 친구
+      function removeClass(){
+          $("div").removeClass("class");
+      }
+      // 해당 calss를 가지고 있는지 확인 = true, false로 값이 나옴
+      function hasClass(){
+          console.log($("div").hasClass("class"));
+      }
+      // 없으면 추가하고 있으면 제거
+      function toggleClass(){
+          $("div").toggleClass("class");
+      }
+      // 클래스를 동적으로 추가하고 싶을때 switch클레스, 제이쿼리 기본등록이 안되어있어서 제이쿼리 ui를 추가해서 사용한다
+      
+   </script>
+ </head>
+  <body>
+    <div>
+        div입니다.
+    </div>
+    <button type="button" onclick="addClass()">addClass</button>
+    <button type="button" onclick="removeClass()">removeClass</button>
+    <button type="button" onclick="hasClass()">hasClass</button>
+    <button type="button" onclick="toggleClass()">toggleClass</button>
+  </body>
+</html>

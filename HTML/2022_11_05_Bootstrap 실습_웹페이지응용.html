@@ -1,0 +1,205 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap demo</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+    <!-- 밑의 버튼이 어떤 css구조인지 궁금하면 위의 링크를 봐라 -->
+ </head>
+ <body>
+  <!-- nav바 -->
+  <nav class="navbar navbar-expand-md" style="background-color: rgb(228, 228, 226);">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#" style="color:white;">홈</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavDropdown">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="#" style="color: gray;">학원 소개</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" style="color: white;">
+              컴퓨터 수업
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="https://nowonbun.tistory.com/524">초등학생 코딩</a></li>
+              <li><a class="dropdown-item" href="https://nowonbun.tistory.com/524">초등학생 샘플강의</a></li>
+              <li><a class="dropdown-item" href="https://nowonbun.tistory.com/524">중고등학생코딩</a></li>
+              <li><a class="dropdown-item" href="https://nowonbun.tistory.com/524">대학생/전공자 코딩</a></li>
+              <li><a class="dropdown-item" href="https://nowonbun.tistory.com/524">회사 실무/자격증 취득</a></li>
+            </ul>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" style="color: gray;">
+                교과 수업
+              </a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="https://nowonbun.tistory.com/524">회사 실무/자격증 취득</a></li>
+              </ul>
+
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" data-bs-toggle="modal" data-bs-target="#exampleModal" href="#" style="color: gray;">오시는 길</a>
+              </li>
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+     <div class="modal-content">
+        <div class="modal-header">
+         <h1 class="modal-title fs-5" id="exampleModalLabel">오시는 길</h1>
+         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+       <div class="modal-body">
+          <img src="locate13.png" class="d-block w-100">
+       </div>
+       <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">닫기</button>
+       </div>
+     </div>
+    </div>
+  </div>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <!-- 홈페이지 바디 -->
+
+  <div class="list-group" style="margin:50px; display:flex;">
+    <button type="button" class="list-group-item list-group-item-action active" aria-current="true">
+      <a class="nav-link active" aria-current="page" data-bs-toggle="modal" data-bs-target="#exampleModal" href="#">히트상품</a>
+    </button>
+    <button type="button" class="list-group-item list-group-item-action">커피</button>
+    <button type="button" class="list-group-item list-group-item-action">차</button>
+    <button type="button" class="list-group-item list-group-item-action">스무디</button>
+  </div>
+
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+     <div class="modal-content">
+        <div class="modal-header">
+         <h1 class="modal-title fs-5" id="exampleModalLabel">히트 상품</h1>
+         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+       <div class="modal-body">
+          <img src="locate13.png" class="d-block w-100">
+       </div>
+       <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">닫기</button>
+       </div>
+     </div>
+    </div>
+  </div>
+        </ul>
+      </div>
+    </div>
+
+  <!-- 카드 -->
+  
+  <div class="card col-12" style="margin-left:50px; margin-top:px; width: 13rem; display:inline-flex;" >
+    <img src="5.jpg" class="card-img-top" alt="...">
+    <div class="card-body">
+      <h5 class="card-title">녹차입니다</h5>
+      <p class="card-text">안정감을 주는 녹차</p>
+      <a href="#" class="btn btn-primary">Go somewhere</a>
+    </div>
+  </div>
+
+  <div class="card col-12" style="margin-left:10px ; width: 13rem; display:inline-flex;" >
+    <img src="5.jpg" class="card-img-top" alt="...">
+    <div class="card-body">
+      <h5 class="card-title">녹차입니다</h5>
+      <p class="card-text">안정감을 주는 녹차</p>
+      <a href="#" class="btn btn-primary">Go somewhere</a>
+    </div>
+  </div>
+
+  <div class="card col-12" style="margin:10px ; width: 13rem; display:inline-flex;" >
+    <img src="5.jpg" class="card-img-top" alt="...">
+    <div class="card-body">
+      <h5 class="card-title">녹차입니다</h5>
+      <p class="card-text">안정감을 주는 녹차</p>
+      <a href="#" class="btn btn-primary">Go somewhere</a>
+    </div>
+  </div>
+
+  <!-- 이미지 슬라이드 -->
+  <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel" style="margin-top: 0px; display: inline-flex;">
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <img src="1.jpg" class="d-block w-30" alt="...">
+      </div>
+      <div class="carousel-item">
+        <img src="2.jpg" class="d-block w-30" alt="...">
+      </div>
+      <div class="carousel-item">
+        <img src="3.jpg" class="d-block w-30" alt="...">
+      </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+<!-- 이미지 슬라이드 마무리 -->
+
+
+  
+
+  <!-- 주소 이메일 사는곳 -->
+  <form class="row g-3" style="margin: 50px ;">
+    <div class="col-md-6">
+      <label for="inputEmail4" class="form-label">ID</label>
+      <input type="email" class="form-control" id="inputEmail4">
+    </div>
+    <div class="col-md-6">
+      <label for="inputPassword4" class="form-label">Password</label>
+      <input type="password" class="form-control" id="inputPassword4">
+    </div>
+    <div class="col-12">
+      <label for="inputAddress" class="form-label">구매 상품</label>
+      <input type="text" class="form-control" id="inputAddress" placeholder="구매 상품 번호">
+    </div>
+    <div class="col-12">
+      <label for="inputAddress2" class="form-label">전화번호</label>
+      <input type="text" class="form-control" id="inputAddress2" placeholder="핸드폰, 집">
+    </div>
+    <div class="col-md-4">
+      <label for="inputState" class="form-label" >시/군/구</label>
+      <select id="inputState" class="form-select">
+        <option selected>시/군/구</option>
+        <option>서울시</option>
+        <option>부산시</option>
+      </select>
+    </div>
+    
+    <div class="col-md-6">
+      <label for="inputCity" class="form-label">상세 주소</label>
+      <input type="text" class="form-control" id="inputCity" placeholder="상세 주소">
+      
+    </div>
+    
+    <div class="col-12">
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" id="gridCheck">
+        <label class="form-check-label" for="gridCheck">
+          확인동의
+        </label>
+      </div>
+    </div>
+    <div class="col-12">
+      <button type="submit" class="btn btn-primary">구매</button>
+    </div>
+  </form>
+ <!-- 주소 이메일 사는곳 끝-->
+
+
+ </body>
+
+</html>
