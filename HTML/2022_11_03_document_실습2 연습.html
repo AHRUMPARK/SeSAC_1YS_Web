@@ -1,22 +1,58 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Document_실습2 연습1</title>
+        <title>방명록 복습</title>
         <script>
             function add(){
+            // 알고리즘 생각해보기
+            // 1. 입력될 작성자, 내용에 연결
+            // 2. append는 부모.append(자식) 이다
+            // 여기서는 tr과 그안의 td들을 추가해야 한다.
+            // 그래서 tr의 부모요소인 tbody(여기서 안보여서 쿼리 셀렉터로 선택)과 
+            // td의 부모요소 tr을 생각한다.
+            // 3. 번호에 들어갈것은 tr갯수!
+            var table = document.querySelector('tbody');    //tr을 위해 지정함
+            var tr = document.createElement('tr');          //append는 createElement를 출력하기 위한 도구
+            
+            var number = document.getElementsByTagName('tr').length; //번호칸에는 tr.length = tr의 갯수
 
+            var name = document.getElementById('name');  //name인풋을 name변수에 지정
+            var content = document.getElementById('content');   //content인풋을 content변수에 지정
+            var date = new Date();                   //데이트 객체 생성
+
+
+            var td1 = document.createElement('td');  //추가할 td칸들 나열
+            var td2 = document.createElement('td');
+            var td3 = document.createElement('td');
+            var td4 = document.createElement('td');
+
+            table.append(tr);  // 추가
+
+            td1.innerText = number;   // number = tr의 갯수값
+            td2.innerText = name.value;  //name에 할당된 값을 td2에 넣는다.
+            td3.innerText = content.value;  //content에 할당된 값을 td3에 넣는다.
+            td4.innerText =                 //td4에 뒤의 값들을 할당한다.
+                            date.getFullYear() + "-" +
+                            (date.getMonth()+1) + "-" +
+                            date.getDate() + " " +
+                            date.getHours() + ":" +
+                            date.getMinutes();
+            
+            tr.append(td1, td2, td3, td4); //td1,td2,td3,td4를 추가한다.
             }
+
+            
            
         </script> 
     </head>
     <body>  
-        방명록입니다
+        <h1>방명록입니다</h1>
         <form>
             작성자 <input type="text" id="name"><br>
-            내용 <input type="text" id="content"><br>
+            내용 <input type="text" id="content"><br><br>
 
-            <button type="button" onclick="">작성</button><br>
-            <table border="1" sellspacing="10" sellpadding="5" style="text-align:center;">
+            <button type="button" onclick="add();">작성</button><br><br>
+            <table id="table" border="1" cellspacing="1" cellpadding="10" style="text-align:center;">
                 <tr id="tr">
                     <td id="td1">번호</td>
                     <td id="td2">작성자</td>
