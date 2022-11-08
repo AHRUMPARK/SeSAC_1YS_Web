@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>내 스케줄</title>
+<!-- 제이쿼리 홈페이지에서  minified 를 복사 붙이기 -->
+<script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+
+<style>
+    td {
+        width: 100px;
+        height: 100px;
+    }
+    tr > td:first-child > p,
+    tr > th:first-child > p {
+        color: red
+    }
+    tr > td:last-child > p,
+    tr > th:last-child > p {
+        color: blue;
+    }
+    td > p:hover {
+        transform: scale(1.2);
+        cursor:pointer;
+    }
+</style>
+
+</head>
+<body>
+
+        <!-- readonly읽기 전용 속성 -->
+
+
+        <div>
+            날짜 : <input type="text" id="date" readonly> <br>
+            내용 : <input type="text" id="content"> <br>
+            <button type="button" onclick="writeSchedule();">작성</button> <br>
+        </div> 
+        <div style="font-size:2em; color:green; text-align:center;">
+            2022년 7월        
+        </div> 
+
+        <br>
+        
+        <table align="center" width=500 style="text-align:center;">
+            <tr>
+                <th>日</th>
+                <th>月</th>
+                <th>火</th>
+                <th>水</th>
+                <th>木</th>
+                <th>金</th>
+                <th>土</th>
+            </tr>
+            <tr>
+                <td><p></p></td>
+                <td><p></p></td>
+                <td><p></p></td>
+                <td><p></p></td>
+                <td><p></p></td>
+                <td><p>1</p></td>
+                <td><p>2</p></td>
+            <tr>
+                <td><p>3</p></td>
+                <td><p>4</p></td>
+                <td><p>5</p></td>
+                <td><p>6</p></td>
+                <td><p>7</p></td>
+                <td><p>8</p></td>
+                <td><p>9</p></td>
+            </tr>
+            <tr>
+                <td><p>10</p></td>
+                <td><p>11</p></td>
+                <td><p>12</p></td>
+                <td><p>13</p></td>
+                <td><p>14</p></td>
+                <td><p>15</p></td>
+                <td><p>16</p></td>
+            </tr>
+            <tr>
+                <td><p>17</p></td>
+                <td><p>18</p></td>
+                <td><p>19</p></td>
+                <td><p>20</p></td>
+                <td><p>21</p></td>
+                <td><p>22</p></td>
+                <td><p>23</p></td>
+            </tr>
+            <tr>
+                <td><p>24</p></td>
+                <td><p>25</p></td>
+                <td><p>26</p></td>
+                <td><p>27</p></td>
+                <td><p>28</p></td>
+                <td><p>29</p></td>
+                <td><p>30</p></td>
+            </tr>
+            <tr>
+                <td><p>31</p></td>
+                <td><p></p></td>
+                <td><p></p></td>
+                <td><p></p></td>
+                <td><p></p></td>
+                <td><p></p></td>
+                <td><p></p></td>
+            </tr>
+        </table>
+    
+</body>
+    <script>
+        var target;
+
+        // target은 이벤트가 발생한 바로 그 요소
+        //currentTarget은 이벤트 리스너(EventListener)를 가진 요소
+        //.val 선택한 양식의 값을 가져옵니다. 즉 input아이디 데이터의 값()
+
+        //힌트 $("td").on("click", function( obj )의 target과 function writeSchedule()의 target이 동일하다.
+        $("td").on("click", function( obj ){
+            target = obj.currentTarget;
+            console.log( target );
+            console.log(obj);
+            console.log(obj.currentTarget);
+            console.log(obj.currentTarget.children);
+            console.log(obj.currentTarget.children[0]);
+            $('#date').val($(obj.currentTarget.children[0]).text());
+        });
+
+        function writeSchedule(){
+            // $('button').on("click", function( obj ){
+            //     target = obj.currentTarget;
+                // console.log(target);
+            //     console.log(obj);
+            //     console.log(obj.currentTarget);
+            //     console.log(obj.currentTarget.children);
+            //     console.log(("#content").val);
+
+            //     $(obj.currentTarget.children[0]).text = $('#content').val; 
+
+            // })  
+
+            // 선생님과 푸는 코드
+            console.log(target);
+            var date = $("#date").val();
+            var content = $("#content").val();
+            // 자식요소가 하나라는 것은 <td>안에 <p>태그가 하나다.
+            // append시키면 자식이 많
+
+            if ( target.children.length > 1 ) {
+                    var div = target.children[1];
+                    div.innerText = content; //새로운 div가 추가되는게 아니라 덮어써질 것이다.
+                    //아무것도 안적혀있으면 실행 됨
+            }  else {
+                    var div = document.createElement('div');
+                    div.style = "font-size:0.4em;"
+                    div.innerText = content;
+
+                    $(target).append(div);
+            }
+        }
+
+        
+    </script>
+</html>
