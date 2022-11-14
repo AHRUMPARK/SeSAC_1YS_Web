@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    div { border: 2px solid blueviolet;
+          width: 100px;
+          text-align: center;
+          margin: 0;
+    }
+    div p{
+        display: inline;
+    }
+</style>
+<body>
+    <script>
+        document.write("<h1>구구단표</h1>");
+        for(i = 2; i < 10; i++){
+            document.write("<h3>" + i + "단</h3>");
+            document.write("<div>");
+                for(j=1; j<10; j++ ){
+                    document.write("<p>" + i+ "*" + j + '=' + i * j +"</p><br>");
+                }
+                document.write("</div>")
+        }
+    </script>
+
+</body>
+</html>
