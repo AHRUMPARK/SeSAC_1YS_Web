@@ -82,7 +82,7 @@
         <h1>To do list</h1>
 
         <div class="write-box">
-            <input type="text">
+            <input type="text" class="text-basic">
             <button type="button" id="button" onclick="">추가</button>
         </div>
         <table class="list-table">
@@ -114,12 +114,44 @@
             </tbody>
         </table>
         <div class="btn-area">
-            <button type="button" onclick="">선택 삭제</button>
-            <button type="button" onclick="">마지막 항목 삭제</button>
-            <button type="button" onclick="">전체 삭제</button>
+            <button type="button"  onclick="DeleteSel(this)">선택 삭제</button>
+            <button type="button"  onclick="btnDelLast(this)">마지막 항목 삭제</button>
+            <button type="button"  onclick="btnDelAll(this)">전체 삭제</button>
         </div>
     </div>
 
 </body>
+<script>
+
+    function addList(){
+        var content = document.querySelector('.text-basic');
+        if(!content.value){
+            alert('내용을 입력해주세요.');
+            content.focus();
+            return false;
+        }
+    }
+    function btnDelAll(){
+        var tr = document.createElement('tr');
+        var input = document.createElement('input');
+        input.setAttribute('type', 'checkbox');
+        input.setAttribute('class', 'btn-ck');
+
+        var td01 = document.createElement('td');
+        td01.appendChild(input);
+        console.log(td01);
+        tr.appendChild(td01);
+
+        var td02 = document.createElement('td');
+        td02.innerText = content.value;
+    }
+    function btnDelLast(){
+
+    }
+    function DeleteSel(){
+
+    }
+
+</script>
 
 </html>
