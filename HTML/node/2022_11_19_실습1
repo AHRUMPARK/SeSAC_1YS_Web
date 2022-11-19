@@ -1,0 +1,47 @@
+// const fs2 = require('fs').promises;
+// fs2.writeFile('./sesac.txt', '반갑습니다.')
+//     .then((data) => {
+//         return var sfile = fs2.readFile('./sesac.txt');
+//     })
+//     .then((data) => {
+//         return fs2.output.txt
+//     })
+
+
+const fs = require('fs');
+const fs2 = require('fs').promises;
+
+// fs.writeFile('./sesac.txt', '입출력스트림?', function(err){
+//     if (err) throw err;
+//     console.log( 'sesacfile sucess!');
+//     fs.readFile('./sesac.txt', function(err, data){
+//         if (err) throw err;
+//         console.log('sesac.txt의 data : ', data.toString());
+//     }) 
+// });
+
+// const readStream = fs.createReadStream('./sesac.txt');
+// const writeStream = fs.createWriteStream('./sesac복사본.txt');
+// readStream.pipe(writeStream);
+// fs.writeFile('./sesac.txt', '복사해봐용', function(err){
+//     if (err) throw err;
+//     console.log('파일 만들었고');
+// })
+// fs.copyFile('./sesac.txt', './', function(err, data){
+//     if (err) throw err;
+//     console.log('sesac.txt의 복사 성공!');
+//     }); 
+
+
+fs2.copyFile('./sesac.txt', './sesac복사.txt')
+    .then(()=>{
+       console.log('파일복사');
+    })
+    .then(()=>{
+        fs2.rename('./sesac복사.txt', 'new_sesac.txt');
+        console.log('이름 변경');
+    })
+    .catch(err => {
+        console.error(err);
+    });
+

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            div {width: 100px; height: 100px; border-radius: 50px; position: absolute;}
+            .circle1 { background-color: rgb(127, 174, 255); position: relative; left: 210px; top: 80px;}
+            .circle2 { background-color: rgb(66, 124, 226); position: absolute; left: 70px; top: 35px;}
+            .circle3 { background-color: rgb(8, 61, 153);position: absolute;left: 130px; top:70px;}
+            .circle4 { background-color: rgb(57, 6, 159);position: absolute;left: 180px; top: 65px;}
+            .circle5 { background-color: rgb(89, 2, 95);position: absolute;left: 230px; top: 60px; z-index: 16;}
+            #child1 { background-color: white; width: 40px; height: 40px; border-radius: 20px; z-index: 10; position: absolute; left: 20px; top: 15px;}
+            #child2 { background-color: black; width: 20px; height: 20px; border-radius: 10px; z-index: 15; position: absolute; left: 20px; top: 23px;}
+            .img1 {width: 400px; position: absolute; z-index: 15; top: -10px;}
+        </style>
+    </head>
+    <body>
+        <div class="circle1">
+            <div class="circle2"></div>
+            <div class="circle3"></div>
+            <div class="circle4"></div>
+            <div class="circle5"></div>
+            <div id="child1"></div>
+            <div id="child2"></div>
+            <img class="img1" src="7.png">
+        </div>
+        
+        
+        
+    </body>
+</html>

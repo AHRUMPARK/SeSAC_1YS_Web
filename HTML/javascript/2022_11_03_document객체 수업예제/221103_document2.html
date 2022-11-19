@@ -1,6 +1,10 @@
 <html>
     <head> 
         <script>
+            function querySelector(){
+                console.log(tag)
+            }
+            querySelector('img')
             function imgChange() {
                 var tag = document.querySelector("img");
                 console.log( tag );
@@ -8,7 +12,7 @@
                 console.log( tag.width );
                 tag.src = "./img.jpg";
             }
-            
+            imgChange()
             function add() {
                 var li = document.createElement("li");
                 li.innerText = "새로운 li";
