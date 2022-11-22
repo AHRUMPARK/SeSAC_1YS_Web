@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 서버로 정보를 전송할 수 있는 기능 form태그
+    기본 속성으로 action="" method="" name=""가 있다
+    action은 정보를 전달할 주소(만들어둔 라우터를 action에 적는다.) 서버측에 저런 주소가 있어야 한다
+    method는 http 요청 (클라이언트 서버측 요청시) get, post방식등이 있는데, 이 둘이 여기에 들어간다
+    get과 post의 차이는 get은 url에 정보가 다 그대로 보인다
+    스크립트 태그에서 해당 폼을 선택할 수 있다.
+    form name은 선택사항이지만, input의 name은 필수 
+    radio는 객관식이다 묶음의 기준은 name이다/네임 설정이 안되어있으면 다중 선택 가능
+    다중선택하고싶으면, checkbox 사용 
+    라디오든 체크박스든 value를 해줘야 서버가 어떤 값인지를 인식합니다.-->
+    <h3>get 요청</h3>
+    <form action="/getform" method="get">
+        <input type="text"  name="id">
+        <input type="password" name="pw">
+        
+        <!-- for="아이디" 어딘가에 존재하는 아이디 
+        라벨을 클릭하면 같이 클릭되게
+        fieldset, legend는 묶여서 보임-->
+        <fieldset>
+            <legend>성별</legend>
+            <input type="radio" name="gender" value="남자" id="men"><label for="men">남자</label> 
+        <input type="radio" name="gender" value="여자" id="women"><label for="women">여자</label> 
+        </fieldset>
+        
+        <fieldset>
+            <legend>취미</legend>
+            <input type="checkbox" name="interst" value="넷플릭스" id="net"><label for="net">넷플보기</label>
+            <input type="checkbox" name="interst" value="음악감상">음악감상 
+            <input type="checkbox" name="interst" value="운동">운동 
+        </fieldset>
+
+        <button type="submit">제출</button> 
+    </form>
+    <!-- 라우터가 달라져야함 -->
+    <h3>post 요청</h3>
+    <form action="/postform" method="post">
+        <!-- readonly라고 하면, 입력이 안됨 클라이언트는 바꿀수없다.
+        왜쓰냐? 그냥 기본값으로 value를 박고, 바꾸지 않길 바랄때 -->
+        <input type="text"  name="id" value="aaa" readonly>
+        <input type="password" name="pw" placeholder="비밀번호" required>
+        <!-- 네임은 셀렉트 태그, 값은 option에 넣는다. -->
+        <select name="brithMonth">
+            <% for( var i = 1; i<=12; i++ ) { %>
+                <option value="<%=i%>"><%=i%>월</option>
+                <% } %>
+        </select>
+        <!-- 인풋과 다를바 없지만, 대용량으로 글을 쓸때 쓴다 
+        required를 쓰면, 반드시 값을 받는 필수값이 된다. -->
+        <textarea name="content" rows="30" cols="50" required></textarea>
+        <button type="submit">제출</button> 
+    </form>
+    <script>
+        console.log(document.forms['getform']); //위에 name으로 설정한 이름 넣기
+    </script>
+</body>
+</html>
