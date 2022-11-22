@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>test ejs</title>
+</head>
+<body>
+    ejs 파일로 만든 html !
+   <!-- ejs 문법
+    <% %> 하나의 태그, 이곳에 javaScript 코드를 쓸 수 있다
+    이 안에서 쓸수있는 문법, 안되는 문법은 쓰면서 알 수 있다 
+    *****한줄 내에 열리고 닫혀야한다.*****
+    아랫줄의 { 중괄호를 첫 줄에서 열어줘야 이어진다는 의미로 인식한다
+    =i 변수 출력하고 싶을 때-->
+    <!-- data.length 변수 받아오기 <% //=변수%>, 배열의 크기 -->
+    <% for(var i = 0; i< 5; i++){ %>
+        <div>안녕<%=i+1%></div>
+    <% } %>
+
+    <!-- 문자열 인식  = 은 태그인식 x-->
+    <!-- -는 태그로 인식합니다 > 글자가 파랑색 -->
+    <div style="color: red;"><%="<span style='color:blue;'>안녕</span>"%>하세요</div>
+    <div style="color: red;"><%-"<span style='color:blue;'>안녕</span>"%>하세요</div>
+
+     <!-- test.ejs를 불러온다 
+    -include(파일이름 상대경로로) 함수 -는 태그 인식하라고 쓴것!
+    ./test.test.ejs 현재위치의 test폴더의 test.ejs파일
+    navbar 같은 거 만들때, 여기저기 필요하기 때문에 제일 위에 위치시켜주면 된다.
+    푸터파일 만들어놓고 푸터인클로드만 하면 되듯..-->
+    <%-include('test.ejs')%>
+
+</body>
+</html>
