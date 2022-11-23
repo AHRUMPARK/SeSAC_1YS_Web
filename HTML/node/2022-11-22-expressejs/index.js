@@ -83,6 +83,11 @@ app.get('/test_1', (req,res)=>{
         title:"실습1 문제입니다.",
     });
 })
+app.get('/img', (req,res)=>{
+    res.render('img',{
+        title:"이미지 for문"
+    })
+})
 
 app.get('/form', (req,res)=>{
     res.render('form');
