@@ -1,0 +1,50 @@
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+</form>
+<h1>test_1</h1>
+<form id="form_info" method="get">   
+    이름 <input type="text" name="name">
+    <fieldset>
+        <legend>성별</legend>
+        <input type="radio" name="gender" value="남자" id="men"  ><label for="men">남자</label> 
+        <input type="radio" name="gender" value="여자" id="women"><label for="women">여자</label> 
+        </fieldset>
+    <fieldset>
+        <legend>생년월일</legend>
+        <select name="brithyear">
+            <% for( var i = 1900; i<=2022; i++ ) { %>
+                <option value="<%=i%>"><%=i%>년</option>
+                <% } %>
+        </select>
+        <select name="brithMonth">
+            <% for( var i = 1; i<=12; i++ ) { %>
+                <option value="<%=i%>"><%=i%>월</option>
+                <% } %>
+        </select>
+        <select name="brithdate">
+            <% for( var i = 1; i<=31; i++ ) { %>
+                <option value="<%=i%>"><%=i%>일</option>
+                <% } %>
+        </select>
+    </fieldset>
+    <button type="button" onclick="sendGet()">회원가입</button>
+</form>
+</body>
+<script>
+    function sendGet(){
+        var form = document.getElementById('form_info');
+        axios({
+            mothod : "get",
+            url : "/test_form",
+            params: { name1 : form.name.value ,
+                      gender1 : form.gender.value,
+                      birth : form.brithyear.value + form.brithMonth.value + form.brithdate.value,
+                    }
+        }).then(function(res){
+            alert(res.data.name_);
+            alert(res.data.gender_);
+            alert(res.data.birth_);
+        });
+    }
+
+</script>

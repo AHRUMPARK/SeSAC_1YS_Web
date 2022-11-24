@@ -1,0 +1,39 @@
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+<body>
+    <button type="button" onclick="sendGet()">get</button>
+    <button type="button" onclick="sendPost()">Post</button>
+    <form id="form_info">
+        <input type="text" name="name">
+    </form>
+</body>
+<script>
+    function sendGet(){
+      var form = document.getElementById('form_info');//name
+      //form.name.value (폼 태그 안에 네임속성이 네임인 벨류를 가져오겠다)
+      //form.age.value (age속성의 값) 이런식이 가능해서 모든 fom에 이름지정 필용 ㅓㅄ다.
+      //네임속성 지정해서 값을 가져오는 방법
+        //axios get 전송
+        //axios 는 값으로 메소드형식, url주소 받을 데이터는 parms?
+      axios({
+             method : "get",
+             url: "/form",
+             params: { name: form.name.value } //입력창값을 보내겟다
+        }).then(function(res){
+            // console.log(res); //then으로 받은 형태 확인(요청에 대한 답을 다 보내준다.)
+            //res.data = {msg: ~~~} 객체에 대한 원하는 키를 정확히 해야 정확한 값을 받을 수 있다.
+            alert(res.data.msg);
+        });
+    }
+    function sendPost(){
+        var form = document.getElementById('form_info');
+        axios({
+            method : "post",
+            url : "/form", //post는 body에서 받아서 data에 담긴다 외워! get은 params!!
+            data: { name: form.name.value
+                    }
+        }).then(function(res){
+            alert(res.data.msg);
+        });
+    }
+</script>
+</script>

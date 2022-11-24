@@ -124,6 +124,12 @@ app.post('/test_2_post',(req,res)=>{
     res.send('post성공');
 })
 
+//2022_11_24 Axios_form.ejs
+app.get("/form_ax", function(req,res){
+    console.log(req.query);
+    res.send('이름은 : ', req.query.name); // 전달 받은 값 + 내 이름을 합쳐서
+})
+
  // 웹서버 여는법 listen(포트번호,함수)
  // listen이 항상 밑으로 와야 읽는다!!! 중요
 app.listen(port,()=>{

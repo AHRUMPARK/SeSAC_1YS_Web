@@ -1,0 +1,54 @@
+<form action="/postfrom_regex" name="login" method="post">
+    <input
+        type="text"
+        name="id"
+        placeholder="ID 입력"
+        pattern="^([a-zA-Z0-9가-힣]{4,})$"
+        title="대소문자, 한글, 숫자, 4글자 이상"
+        required
+        >
+    <input
+        type="password"
+        name="pw"
+        placeholder="pw"
+        pattern="^([a-z0-9]){8,12}$"
+        title="소문자, 숫자로 8자리 이상 12자리 이하"
+        required
+        >
+</form>
+<!-- /:정규식을 사용한다는 의미 > 정규식을 //으로 감싼다. > 자바스크립트에서 쓰임 (html은 쓰일 필요 없어서 안씀)
+데이터의 시작점(^)과 데이터의 끝점($)
+범위[a-z]:a부터 z까지 중 문자 하나
+    [가-힣]:한글의 모든 음절 범위 표현
+개수 {} >{2, 4}:2개부터 4개까지
+():그룹 검색 및 분류
+.:임의의 글자 하나
++:1개 이상의 글자
+*:0개 이상의 모든 문자
+?:0~1번 반복되는 문자열 -->
+    <input
+        type="text"
+        name="phone"
+        pattern="/^\d{3}-\d{3,4}-\d{4}$"
+        placeholder="010-0000-0000"
+        oninput="phone_validation(this);"
+        required
+    >
+    <div class="error"></div>
+
+<script>
+    function phone_validation(obj){
+        var regPhone = /^\d{3}-\d{3,4}-\d{4}$/;
+        if (regPhone.test(obj.value) === false ) {
+            $(".error").text('휴대폰 번호를 000-0000-0000 형식에 맞게 입력해주십시오.');
+        } else {
+            $(".error").text("");
+        }
+    }
+</script>
+<!-- 정규표현식.test('검사할 문자열')
+-검사를 통과하면 true
+-검사를 통과하지 못하면 false 
+\d{3} 세개의 숫자
+-->
+
