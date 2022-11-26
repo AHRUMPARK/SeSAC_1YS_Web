@@ -29,16 +29,17 @@
 
             // ajax Get / Post
             function ajaxGet(){
-                var form = document.getElementById("form_login");
+                var form = document.getElementById('form');
                 $.ajax({
-                    url: '/login',
-                    type: 'GET',
-                    data: {id: form.id.value, pw: form.pw.value},
-                    success: function (data) {
-                        console.log("ajaxGet");
-                        document.querySelector("#result").innerHTML = data.msg;
+                    url: "/login",
+                    data: { id: form.id.value,
+                            pw: form.pw.value
                     },
-                    error: function (error) {
+                    success : function(data){
+                        console.log(ajaxGet);
+                        document.getElementById('#result').innerHTML = data.msg;
+                    },
+                    error: function (error){
                         console.error(error);
                     }
                 });
@@ -58,37 +59,53 @@
                     }
                 });
             }
+            function ajaxPost(){
+                var form = document.getElementById("form_login");
+                $.ajax({
+                    url: '/login',
+                    method: 'post',
+                    data: { id : form.id.value,
+                            pw : form.pw.value
+                    },
+                    success : function(data){
+                        console.log('ajaxPost');
+                        document.getElementById('#result').innerHTML = data.msg;
+                    }, error : function(error){
+                        console.log(error);
+                    }
+                })
+            }
 
             // fetch Get / Post
+            // fetch get은 첫번째인자만 필요하다
             function fetchGet(){
-                var form = document.getElementById("form_login");
-                let queryString = "?id=" + form.id.value + "&pw=" + form.pw.value;
+                var form = document.getElementById('form_login');
+                let queryString = "?id=" + form.id.value + "&pw" + form.pw.value;
                 fetch("/login" + queryString, {
-                    method: "get",
-                }).then(function(response) {
-                    return response.json();
-                }).then(function(result){
-                    console.log("fetchGet");
-                    document.querySelector("#result").innerHTML = result.msg;
-                });
+                    method:"get",
+                }).then(function(res){
+                    return res.json();
+                }).then(function(res){
+                    document.getElementById('#result').innerHTML = res.data.msg;
+                })
             }
-            function fetchPost(){
-                var form = document.getElementById("form_login");
-                fetch("/login", {
-                    method: "post",
-                    headers: {
-                        "Content-Type": "application/json",
-                    },
-                    body: JSON.stringify(
-                        {id: form.id.value, pw: form.pw.value}
-                    ),
-                }).then(function(response) {
-                    return response.json();
-                }).then(function(result){
-                    console.log("fetchPost");
-                    document.querySelector("#result").innerHTML = result.msg;
-                });
-            }
+
+                function fetchPost(){
+                    var form = document.getElementById('form_login');
+                    fetch("/login",{
+                        method: post,
+                        headers: {
+                            "Content-Type": "application/json"
+                        },
+                        body : JSON.stringify({
+                            id : form.id.value, pw : form.pw.value
+                        })
+                    }).then(function(res){
+                        return res.json();
+                    }).then(function(res){
+                        document.getElementById('#result').innerHTML = res.data.msg;
+                    })
+                }
         </script>
     </head>
     <body>

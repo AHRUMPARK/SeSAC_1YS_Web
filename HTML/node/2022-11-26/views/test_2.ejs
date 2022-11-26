@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <title>Document</title>
+</head>
+<body>
+
+    <h5>test_2</h5>
+    <form action="/test_2" id="form_info" method="post" enctype="multipart/form-data">
+        <fieldset style="width: 300px;">
+            <legend>개인 정보</legend>
+            아이디 : <input type="text" name="id"><br>
+            비밀번호 : <input type="password" name="pw"><br>
+            이름 : <input type="text" name="name"><br>
+            나이 : <input type="text" name="age"><br>
+        </fieldset>
+            <input type="file" name="img" id="img">
+            <button type="button" onclick="sendPost()">회원가입</button>
+    </form>
+    <br>
+    <img>
+</body>
+    <script>
+        function sendPost(){
+            var form = document.getElementById('form_info');
+            var formdata = new FormData(form);
+
+            axios({
+                method: 'post',
+                url : '/test_2',
+                data : formdata,
+                headers : {'content-Type' : 'multipart/form-data'}
+            })  .then(function(res) { return res.data;})
+                .then(function(res){
+                    console.log(res);
+                    document.querySelector('img').src = res.data;
+            });
+        }
+    </script>
+</html>

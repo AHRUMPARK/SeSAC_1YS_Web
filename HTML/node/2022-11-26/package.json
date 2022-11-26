@@ -1,7 +1,7 @@
 {
-  "name": "node",
+  "name": "2022-11-26",
   "version": "1.0.0",
-  "main": "2022_11_17_URL.js",
+  "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -10,10 +10,7 @@
   "keywords": [],
   "description": "",
   "dependencies": {
-    "ejs": "^3.1.8",
-    "express": "^4.18.2",
-    "init": "^0.1.2",
-    "multer": "^1.4.5-lts.1",
-    "npm": "^9.1.2"
+    "axios": "^1.2.0",
+    "express": "^4.18.2"
   }
 }
