@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js" integrity="sha384-NAifrtbJwcoqjYqhfos40lsRt+O6K5TClF4FjW02ZswKdcD2H3gZN3KA1I3ZxYEM" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+    
+</head>
+<body>
+    <form id="form_register">
+        <fieldset style="display: inline-block;">
+            <legend>방명록 등록</legend>
+            이름<input type="text" name="name" placeholder="사용자 이름"><br>
+            방명록<input type="text" name="comment" placeholder="방명록"><br>
+            <div class="register-btn">
+                <button type="button" onclick="register();">등록</button>
+            </div>
+        </fieldset>
+    </form>
+
+    <table border="1" cellspacing="0" cellpadding="10" style="margin-top: 30px;">
+        <tr>
+            <td>ID</td>
+            <td>작성자</td>
+            <td>방명록</td>
+            <td>수정</td>
+            <td>삭제</td>
+        </tr>
+        <% for(let i=0; i<data.length; i++ ) { %>
+            <tr>
+                <!-- 아이디 저장은 어디? -->
+                <td><%=data[i].ID%></td>
+                <td><%=data[i].name%></td>
+                <td><%=data[i].comment%></td>
+                <td><button type="button">수정</button></td>
+                <td><button type="button">삭제</button></td>
+            </tr>
+        <% } %>
+    </table>
+    <script>
+        function register(){
+            //등록을 하겟다는건 여기 정보를 가지고 동적폼전송
+            //<form id="form_register">
+            let form = document.getElementById('form_register');
+            let data = {
+                name : form.name.value,
+                comment : form.comment.value
+            };
+            axios({
+                method: 'post',
+                url : '/visitor/register',
+                //위에 데이터 설정해서 변수로 가져온다.
+                data : data
+            })//리스폰스에 서버의 응답이 온다. 새로고침하지않아도 바로 들어가는것을 작업할 예정
+            .then((response)=>{
+                $('table').append(`
+                    <tr>
+                        <td>${response.data}</td>
+                        <td>${data.comment}</td>
+                        <td>${response.data}</td>
+                        <td><button type="button">수정</button></td>
+                        <td><button type="button">삭제</button></td>
+                    </tr>
+                `)
+            })
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<html>
+    <head>
+        <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+        <script>
+            function axiosPost(){
+                var form = document.getElementById("form_login");
+                axios({
+                    method: "post",
+                    url: "/login",
+                    data: {id: form.id.value, pw: form.pw.value}
+                }).then(function(res){
+                    console.log("axiosPost");
+                    document.querySelector("#result").innerHTML = res.data.msg;
+                }); 
+            } 
+        </script>
+    </head>
+    <body>
+        <form id="form_login">
+            아이디 : <input type="text" name="id"><br>
+            비밀번호 : <input type="password" name="pw"><br>
+            <button type="button" onclick="axiosPost();">axios Post 로그인</button><br>
+            <div style="text-align:center;" id="result"></div>
+        </form>
+    </body>
+</html>
