@@ -8,7 +8,7 @@ app.use(express.urlencoded({extended:false}));
 app.use(express.json());
 
 //라우터를 불러오는 부분
-const router = require('./routes');
+const router = require('./routes/app');
 app.use('/', router);
 
 //내가 정의해준 라우터가 아닌 다른 라우터 접속시 cannot get /라우터명이 뜬다 =>클라이언트는 이것을 보면 당황한다.

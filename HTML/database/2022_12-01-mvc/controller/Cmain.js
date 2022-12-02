@@ -1,5 +1,6 @@
 //모델 기능 Test로 설정
 const Test = require('../model/Test');
+const User = require('../model/Test');
 //const login = require('')
 
 exports.main = (req, res) => {
@@ -9,12 +10,6 @@ exports.main = (req, res) => {
     // res.send(hi);
     res.render('login');
 }
-// exports.test = (req, res) => {
-//     res.send('test');
-// }
-// exports.post = (req, res) => {
-//     res.send('post');
-// }
 exports.login = (req, res) => {
     let info = Test.login();
     if ( req.body.id == info.id && req.body.pw == info.pw ){
@@ -35,15 +30,12 @@ exports.login = (req, res) => {
 
 exports.login2 = (req, res) => {
     let users = User.user2();
-    //'스프렉틱스//1234//spreatics'
-    //'codee//4321//코디'; 값이 담긴다.
-    //두명의 정보가 담겨있는 
-    //자바스크립트는 어떤
+    //'스프렉틱스//1234//spreatics'codee//4321//코디'; 값이 담긴다.
     let user_list = users.split('\n');
     //user_list = [ '스프렉틱스//1234//spreatics', 'codee//4321//코디'];
     //users에 담긴 얘들을 split 자를 것이다. \n n=앤터 이스케이프 문자
     //앤터를 기준으로 자르면, 배열로 된다.
-    let login_flag = false; //로그인 플레그에 성공을 햇는지 담겟다 성공을 안햇으니 false로
+    let login_flag = false; //로그인 플레그에 성공을 안했다는 가정
     let name = '';
     
     for(let i = 0; i < user_list.length; i++){ //사람 수만큼 for돈다
@@ -54,6 +46,6 @@ exports.login2 = (req, res) => {
             name = user[2]; }
             break; //성공을 하면, 다음건 볼필요 없으니 break
         }
-        if(login_flag)res.sed('${name}님 환영합니다.');//로그인플레그가 트루면
+        if(login_flag)res.send(`${name}님 환영합니다.`);//로그인플레그가 트루면
         else res.send('로그인 실패');
 }

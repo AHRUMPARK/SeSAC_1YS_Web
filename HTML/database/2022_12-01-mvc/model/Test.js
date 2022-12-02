@@ -17,8 +17,8 @@ exports.login = function(){
 }
 
 var users = 
-'스프렉틱스//1234//spreatics'
-'codee//4321//코디';
+`스프렉틱스//1234//spreatics'
+codee//4321//코디`;
 
 exports.user2 = () => {
     return users;
