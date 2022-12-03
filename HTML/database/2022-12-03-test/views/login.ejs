@@ -1,0 +1,46 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js" integrity="sha384-NAifrtbJwcoqjYqhfos40lsRt+O6K5TClF4FjW02ZswKdcD2H3gZN3KA1I3ZxYEM" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+</head>
+<body>
+    <form id="form_register">
+        <h1>Welcome</h1>
+        ID : <br>
+        <input type="text" name="ID" placeholder="사용자 이름"> <br>
+        PASSWORD : <br>
+        <input type="password" name="PW" placeholder="방명록"> <br>
+        <div class="register-btn">
+            <button type="button" onclick="login_user()">Login</button><br>
+        </div>
+        <p>Register</p>
+        <div id="result"></div>
+    </form>
+    <script>
+        function login_user(){
+            let form = document.getElementById('form_register');
+            let data = {
+                ID : form.ID.value,
+                PW : form.PW.value,
+            };
+            axios({
+                method : 'post',
+                url : '/login/login_',
+                data : data
+            })
+            .then((response)=>{
+                let result = response.data;
+                if(result) alert("로그인 성공");
+                else alert('로그인 실패');
+              //  document.location.href='/login/login_';
+            })
+        }
+    </script>
+</body>
+</html>

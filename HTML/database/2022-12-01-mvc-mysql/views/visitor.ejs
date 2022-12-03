@@ -7,14 +7,24 @@
     <title>Document</title>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js" integrity="sha384-NAifrtbJwcoqjYqhfos40lsRt+O6K5TClF4FjW02ZswKdcD2H3gZN3KA1I3ZxYEM" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
-    
+   <style>
+    .d-none {
+        display: none;
+    }
+   </style>  
 </head>
 <body>
     <form id="form_register">
         <fieldset style="display: inline-block;">
             <legend>방명록 등록</legend>
+            <!-- 웹브라우저에서는 안보임 업데이트 조건에는 id가 필요함-->
+            <input type="hidden" name="id">
             이름<input type="text" name="name" placeholder="사용자 이름"><br>
             방명록<input type="text" name="comment" placeholder="방명록"><br>
+            <div class="update-btn d-none">
+                <button type="button" onclick="update_visitor()">수정</button>
+                <button type="button" onclick="">취소</button>
+            </div>
             <div class="register-btn">
                 <button type="button" onclick="register();">등록</button>
             </div>
@@ -35,12 +45,76 @@
                 <td><%=data[i].ID%></td>
                 <td><%=data[i].name%></td>
                 <td><%=data[i].comment%></td>
-                <td><button type="button">수정</button></td>
-                <td><button type="button">삭제</button></td>
+                <td><button type="button" onclick="update_load('<%=data[i].ID%>', this)">수정</button></td>
+                <td><button type="button" onclick="delete_visitor('<%=data[i].ID%>', this)">삭제</button></td>
+            <!-- this: 태그에함수를 달때 인자로 this를 넘겨주면 이 this는 함수가 달려있는 태그가 담깁니다. button 태그에 담김 -->
+            
             </tr>
         <% } %>
     </table>
+    
     <script>
+        //업데이트 로드 버튼 눌럿을때 전역변수되도록 
+        //업데이트가 될 tr을 담는 변수
+        var update_tr;
+        function update_visitor(){
+            var form = document.getElementById('form_register');
+            axios({
+                method : 'patch',
+                url : '/visitor/update',
+                data : {
+                    ID : form.id.value,
+                    name : form.name.value,
+                    comment : form.comment.value
+                }
+            })
+            .then((response)=>{
+                update_tr.children[1].innerText = form.name.value; //콘솔찍으면 td태그가 배열로 뜬다.
+                update_tr.children[2].innerText = form.comment.value; //콘솔찍으면 td태그가 배열로 뜬다.
+
+                form.id.value = "";
+                form.name.value= "";
+                form.comment.value= "";
+                $('.update-btn').addClass('d-none'); //저 클레스에서 d-none이란 클레스를 지우겟다.
+                $('.register-btn').removeClass('d-none'); 
+
+                
+            })
+        }
+        function update_load(ID, element){
+            //인풋 벨류 값 바꿀건데.. 아이디값을 백에서 받고, 조회를 한다 = get
+            axios({
+                method : 'get',
+                url : '/visitor/get_visitor',
+                params : { ID : ID } //아이디 해당 정보를 조회
+            })
+            .then (( response ) =>{
+                var form = document.getElementById('form_register');
+                //아이디 저장할 곳이 필요해서 위에 input hidden으로 만든다.
+                form.id.value = response.data.ID;
+                form.name.value = response.data.name; //서버의 응답으로 객체 형태로보내줌
+                form.comment.value = response.data.comment;
+                $('.update-btn').removeClass('d-none'); //저 클레스에서 d-none이란 클레스를 지우겟다.
+                $('.register-btn').addClass('d-none'); 
+                update_tr = element.parentElement.parentElement;
+            })
+            
+        }
+
+        function delete_visitor(delete_id, element){
+            //어떤 아이디의 데이터(컬럼)을 삭제할 것인가? > 서버요청
+            axios({
+                method:'delete', //데이터 삭제 : delete
+                url: '/visitor/delete',
+                data :{ID : delete_id}//인자로 받은얘를 데이터로넘긴다.
+            })
+            .then((response)=> {
+                //this의 부모 tr까지 접근 가능
+                if(response.data) element.parentNode.parentNode.remove();
+                else alert('알 수 없는 오류 발생');
+            })
+        }
+
         function register(){
             //등록을 하겟다는건 여기 정보를 가지고 동적폼전송
             //<form id="form_register">
@@ -60,9 +134,9 @@
                     <tr>
                         <td>${response.data}</td>
                         <td>${data.comment}</td>
-                        <td>${response.data}</td>
+                        <td>${data.name}</td>
                         <td><button type="button">수정</button></td>
-                        <td><button type="button">삭제</button></td>
+                        <td><button type="button" onclick="delete_visitor(${response.data}, this)">삭제</button></td>
                     </tr>
                 `)
             })
