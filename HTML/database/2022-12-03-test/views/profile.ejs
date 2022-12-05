@@ -1,0 +1,72 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>프로필</title>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js" integrity="sha384-NAifrtbJwcoqjYqhfos40lsRt+O6K5TClF4FjW02ZswKdcD2H3gZN3KA1I3ZxYEM" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+</head>
+<body>
+    <form id="profile_info">
+        <h1>회원정보 수정</h1>
+        ID : <br>
+        <input type="text" name="ID" placeholder="아이디"> <br>
+        PASSWORD : <br>
+        <input type="password" name="PW" placeholder="비밀번호"> <br>
+        NAME : <br>
+        <input type="text" name="name"><br>
+        <div class="update-btn">
+            <button type="button" onclick="update_user()">Edit</button><br>
+        </div>
+        <div class="delete-btn">
+            <button type="button" onclick="delete_user()">Delete</button><br>
+        </div>
+
+
+    </form>
+    <script>
+        function update_user(){
+            var form = document.getElementById('profile_info');
+            let user = {
+                id : form.ID.value,
+                pw : form.PW.value,
+                name : form.NAME.value
+            }
+            axios({
+                method : 'patch',
+                url : '/profile/edit',
+                data : user
+            }).then((res) => {return res.data;})
+              .then((data)=>{
+                if(data){
+                    alert('회원정보 수정 완료');
+                } else { alert('알 수 없는 문제가 발생했습니다.')};
+              });
+        }
+        function delete_user(){
+            var form = document.getElementById('profile_info');
+            let user = {
+                id : form.ID.value,
+                pw : form.PW.value,
+                name : form.NAME.value
+            }
+            axios({
+                method: 'delete',
+                url : '/profile/delete',
+                data : user
+            }).then((res) => {return res.data;})
+              .then((data)=>{
+                if( data ) {
+                    alert('회원 탈퇴 성공!');
+                    document.location.href = '/login';
+                }else {
+                    alert('알 수 없는 문제가 발생했습니다.');
+                }
+              })
+         }
+    </script>
+</body>
+</html>

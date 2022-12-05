@@ -5,41 +5,59 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>로그인 페이지</title>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js" integrity="sha384-NAifrtbJwcoqjYqhfos40lsRt+O6K5TClF4FjW02ZswKdcD2H3gZN3KA1I3ZxYEM" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
 </head>
 <body>
-    <form id="form_register">
+    <form id="form_info" action="/profile" method="post">
+        <input type="hidden" name="id">
+    </form>
+    <form id="form_login">
         <h1>Welcome</h1>
         ID : <br>
-        <input type="text" name="ID" placeholder="사용자 이름"> <br>
+        <input type="text" name="ID" placeholder="아이디" required> <br>
         PASSWORD : <br>
-        <input type="password" name="PW" placeholder="방명록"> <br>
-        <div class="register-btn">
+        <input type="password" name="PW" placeholder="비밀번호" required> <br>
+        <div class="login_btn">
             <button type="button" onclick="login_user()">Login</button><br>
         </div>
-        <p>Register</p>
-        <div id="result"></div>
+        <a href="\index.ejs">Register</a>
+
     </form>
     <script>
         function login_user(){
-            let form = document.getElementById('form_register');
+            let form = document.getElementById('form_login');
+            if( !form.checkValidity() ){
+                form.reportValidity();
+                console.log('reportValidity');
+
+                return false;
+            }
             let data = {
                 ID : form.ID.value,
                 PW : form.PW.value,
             };
             axios({
                 method : 'post',
-                url : '/login/login_',
+                url : '/login',
                 data : data
             })
-            .then((response)=>{
-                let result = response.data;
-                if(result) alert("로그인 성공");
-                else alert('로그인 실패');
-              //  document.location.href='/login/login_';
-            })
+            .then((rep)=>{return rep.data;})
+            .then((data)=>{
+                if(data == true ) {
+                    alert("로그인 성공");
+                    var form_info = document.getElementById('form_info');
+                    form_info.id.value = form.ID.value;
+                    // console.log(form_info.id.value);
+                    form_info.submit();
+                }
+                else {
+                    alert('로그인 실패');
+                    form.reset();
+                }
+             
+            });
         }
     </script>
 </body>
