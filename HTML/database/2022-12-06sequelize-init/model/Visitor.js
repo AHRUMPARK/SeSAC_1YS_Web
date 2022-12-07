@@ -1,4 +1,4 @@
-//이 함수가 실행되어야만 시퀄라이즈가 정의 시퀄라이즈 디파인으로 모델 정의
+//이 함수가 실행되어야만 시퀄라이즈 디파인으로 모델 정의
 // 이걸 리턴해서 어딘가로 저장 할 것이다. > Index.js
 const Visitor = (Sequelize, DataTypes) => {
     return Sequelize.define(
