@@ -23,12 +23,40 @@ db.sequelize = sequelize;
 db.Sequelize = Sequelize;
 
 //모델에대한 정의가 끝나고 이 함수 자체를 실행시켜야 한다.
-db.Visitor = require("./Visitor")(sequelize, Sequelize)
+db.Visitor = require("./Visitor")(sequelize, Sequelize);
 //첫번째 인자는 모델 대문자 인자가 받고 있다 => 정의시킴
 //두번째 인자는 모델 호출해온것을  Visitor파일에서 받고있다 시퀄라이즈 안에 DataTypes에 받고있다.
 //우리가 만든 모델이름
 
+db.User = require("./User")(sequelize, Sequelize); //db의 얘들 가져오는 법
+db.Product = require("./Product")(sequelize, Sequelize);
+db.Payment = require("./Payment")(sequelize, Sequelize);
 
+//즉, 포링키 걸때는 아래것까지 두개의 함수 걸어야 합니다!!
+db.User.hasMany(db.Payment,{
+    foreignKey : "user_id", //참조하는 주체 payment의 user_id
+    sourceKey : "user_id",//참조할 소스 : user테이블의 user_id를 참고
+    onDelete : "cascade"
+});//유저 한사람은 여러 결제내역을 가질 수 있다.
+
+//페이먼트의 입장 > 뭘 바라보냐? 참조하냐?
+db.Payment.belongsTo(db.User,{
+    foreignKey : "user_id", //참조하는 주체 payment의 user_id
+    sourceKey : "user_id",//참조할 소스 : user테이블의 user_id를 참고
+    onDelete : "cascade"
+});
+
+db.Product.hasMany(db.Payment,{
+    foreignKey : "Product_id", 
+    sourceKey : "Product_id",
+    onDelete : "cascade"
+});
+
+db.Product.belongsTo(db.User,{
+    foreignKey : "Product_id", 
+    sourceKey : "Product_id",
+    onDelete : "cascade"
+});
 // db = {
 //     "Sequelize" : Sequelize,
 //     "sequelize" : sequelize,

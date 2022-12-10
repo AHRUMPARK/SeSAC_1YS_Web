@@ -12,29 +12,40 @@
   </body>
 </head>
 <body>
-    <div id="msg"></div>
-    <nav class="navbar bg-light">
-        <div id="login-btn" >
-            <button class="btn btn-outline-success me-2" type="button" onclick="logout(this)">로그아웃</button>
-        </div>
-        
-        </form>
-      </nav>
+    <form id="form_info">
+        <nav class="navbar bg-light">
+            <div id="login-btn" >
+                 <div class="input_" style="display: inline-block;">
+                   id : <input type="text" name="id" style="width: 170px; margin-bottom: 15px;"><br>
+                    pw : <input type="password" name="pw"style="width: 170px;"><br>
+                </div>
+                <button class="btn btn-sm btn-outline-secondary" type="button" onclick="user_login()">로그인</button>
+                <!-- <button class="btn btn-outline-success me-2" type="button" onclick="logout(this)">로그아웃</button> -->
+            </div>
+        </nav>
+    </form>
+     
 </body>
 <script>
-    function logout(delete_id){
+    function user_login(){
     var form = document.getElementById('form_info');
     axios({
-        method : 'delete',
-        url : '/logout',
-        data : { id : delete_id }
-    })
-    .then((response)=>{
-        if( response ){
-            alert("로그아웃 하셨습니다.");
-            
+        method : 'post',
+        url : '/login',
+        data : {
+            id : form.id.value,
+            pw : form.pw.value
         }
     })
+    .then((response)=>{
+        console.log(response.data);
+        if (response.data == true){
+            alert('로그인 성공');
+            window.location.href="/";
+        }
+    });
    }
+
+
 </script>
 </html>

@@ -1,0 +1,98 @@
+서비스에서는
+세션에 사용자 정보 담고
+그 정보를 검사 하는 것으로 로그인 기능을 구현한다.
+
+1. 모델에가져와서 정보를 가져오든
+2. 정보가 없을때 로그인페이지로 리다이렉트로 구현
+
+
+
+1.erd 프로그램?
+https://velog.io/@doohyunlm/DB-ERD-%EA%B0%9C%EB%85%90%EA%B3%BC-%EC%B6%94%EC%B2%9C-%ED%88%B4
+
+
+2.git 사용법
+
+
+
+
+
+3. 데이터 베이스 설계 설명
+각각 테이블에 primary key 설정을 해주는게 좋습니다.
+update, delete 할 때 primary key 값으로 사용하고 있기때문이다.
+
+쇼핑몰
+
+user 정보 필요
+create table user ( 
+	user_id varchar(20) not null primary key,
+	user_pw ~~,
+	user_gender~~,
+)
+
+물건에 대한 정보
+product
+*상품 구별이 가능한 고유값 필요 즉 product_id
+create table product (
+	product_id int not null primary key,
+)
+
+*테이블끼리 연결하기
+물건 구입 목록
+careate table payment (
+	pay_id int not null primary key,
+	user_id varchar(20) not null,  // 어떤사람이 삿는지 user테이블의 user_id와 payment의 user_id 포링키 연결 , 타입은 같아야 한다 (20)
+	product_id int nut null,   //무엇을 삿는지
+	constraint user_payment_user_id foriegn key user_id references user(user_id) on delete cascade on update cascade
+	constraint product_payment_product_id foriegn key product_id references product(product_id) on delete cascade on update cascade,
+
+// "계약명", "연결관계 이름" / 포링키 걸 컬럼 / 참조 테이블(컬럼) / 옵션
+포링키가 걸리는 부분은 포링 뒤 부터~
+constraint는 안해도 상관없지만 나중에 수정하기 편하게 해둔 것
+on delete cascade >  user(user_id) 유저테이블의 user_id 컬럼만 payment에 들어올 수 있다는 의미입니다.
+만약 c라는 사람이 삭제되어야 하면, payment의 user_id가 c인 사람도 같이 삭제를 해야하는 기능이 ***on delete cascade*** / or delete를 하면 안된다? 이거 하지말고 default 처리
+on update cascade는  user(user_id) 가 c가 d로 바뀌면 자동 payment user_id도 업데이트가 되는 기능
+위에 연결 컬럼 셋팅하고, 포링키는 마지막에 설정해준다.
+)
+
+누가 뭘 구입했는지
+user 테이블과 관계를 맺어줘야 한다.
+포링키연결
+
+이사람의 정보를 저장할 컬럼을 만든다.
+
+
+처음부터 데이터 베이스 설계한다......
+
+
+ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ
+모델 파일 시퀄라이즈
+db.User = require("./User")(sequelize, Sequelize); //db의 얘들 가져오는 법
+db.Product = require("./Product")(sequelize, Sequelize);
+db.Payment = require("./Payment")(sequelize, Sequelize);
+
+//즉, 포링키 걸때는 아래것까지 두개의 함수 걸어야 합니다!!
+db.User.hasMany(db.Payment,{
+    foreignKey : "user_id", //참조하는 주체 payment의 user_id
+    sourceKey : "user_id",//참조할 소스 : user테이블의 user_id를 참고
+    onDelete : "cascade"
+});//유저 한사람은 여러 결제내역을 가질 수 있다.
+
+//페이먼트의 입장 > 뭘 바라보냐? 참조하냐?
+db.Payment.belongsTo(db.User,{
+    foreignKey : "user_id", //참조하는 주체 payment의 user_id
+    sourceKey : "user_id",//참조할 소스 : user테이블의 user_id를 참고
+    onDelete : "cascade"
+});
+
+db.Product.hasMany(db.Payment,{
+    foreignKey : "Product_id", 
+    sourceKey : "Product_id",
+    onDelete : "cascade"
+});
+
+db.Product.belongsTo(db.User,{
+    foreignKey : "Product_id", 
+    sourceKey : "Product_id",
+    onDelete : "cascade"
+});

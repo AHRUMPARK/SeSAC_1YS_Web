@@ -27,7 +27,7 @@ app.get('/', (req, res) => {
     // islogin이 false일때 로그인 버튼을 보여주고 true일때
     console.log('메인 페이지 세션 체크: ', req.session.user);
     if(req.session.user) {
-        res.render("main", { isLogin : true });
+        res.render("main", { isLogin : true, id : req.session.user });
     } else {
         res.render("main", { isLogin : false });
     }
@@ -36,6 +36,9 @@ app.get('/', (req, res) => {
 
 const user = {id : "a", pw : "1"};
 
+app.get('/login', (req, res)=>{
+    res.render('login');
+})
 app.post('/login', (req,res)=>{
     // cookies = { } 객체 형태였다. 세션도 마찬가지!
     // req.session = { }
