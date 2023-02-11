@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.socket.io/4.6.0/socket.io.min.js" integrity="sha384-c79GN5VsunZvi+Q/WObgk2in0CbZsHnjEqvFxC5DxHn9lTfNce2WW6h2pH6u/kF+" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+  <link rel="stylesheet" href="./index.css">
+  <title>chatting</title>
+</head>
+
+<body>
+<div class="chat-box container">
+
+  <div id="chat-box-header" class="row">
+    <img id="user_img" src="" alt=""><span>Chat Box</span>
+    <!-- <span class="chat-box-toggle">Close</span> -->
+  </div>
+
+  <div class="chat-box-body row" >
+    <div class="chat-logs" >
+
+    </div>
+  </div>
+  <div class="chat-input row">
+    <form>
+      <input type="text" name="msg" placeholder="메세지를 입력하세요..." />
+      <button type="submit" onclick="sendMsg()">Send</button>
+    </form>
+  </div>
+</div> 
+    <script>
+    // 이벤트 기반
+    // 메세지 보내기 : socket.emit('이벤트명', data) // 데이타는 객체든 뭐든 상관 x
+    // 메세지 받기 : socket.on('이벤트명', (data) => {}) // data 콜벡 함수로 받음
+
+    // 클라이언트 소켓 생성 후 연결
+    // let socket = io.connect();
+    
+
+    
+    // socket.on('connect', () => {
+    //   console.log('server connected');
+    // })
+
+    // console.log('sendMsg : 클라이언트로 받아왓나?');
+    // socket.on('sendMsg', (msg) => {
+    //   form.msg.value = msg;
+    // })
+
+    // const sendMsg = () => {
+    //       console.log('메세지 보내지나?');
+    //   socket.emit('sendMsg', form.msg.value );
+    // }
+
+    const sendMsg = () => {
+      const form = document.querySelector('input').value;
+      console.log(form);
+      event.preventDefault();
+      const chat_log = document.querySelector('.chat-logs');
+      console.log(chat_log)
+      chat_log.innerText = form;
+    }
+  </script>
+</body>
+</html>

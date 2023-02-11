@@ -1,0 +1,58 @@
+01-03-첫수업
+리액트 설명
+
+npm install --save-dev prettier
+= npm i -D
+"devDependencies":
+빌드할때는 빠짐 개발할때 사용하는 부분
+
+
+
+1. npx create-react-app "앱이름"
+노드js가 리엑트관련 모듈을 가져와서 폴더 셋팅
+
+20230105지정한 이름 폴더가 생김
+그 안에 리엑트 코드가 있다.
+
+폴더를 나눠서 해야 git이 안꼬입니다.
+
+
+2.npm i -D prettier
+
+
+3. .prettierrc 파일 만들기
+re는 확장자가 없는 파일
+제이슨이라
+{ }
+여기서 룰 정함
+
+{
+    "semi": true,
+    "singleQuote": true
+}
+
+쌍따옴표 단따옴표로 해라 라고 프리티어에게 지정했다
+
+이젠 vs코드에게도 알려줘야 한다
+
+4..vscode 폴더를 만들어준다
+그 안에 settings.json파일을 만들어줍니다.
+
+그 파일에
+프리티어가 기본적 자동한다고 지정
+
+
+
+*****************************************************************
+안될때 해결 법
+1. 파일 > 폴더 열기 (앱폴더) >  js파일 저장 하면 바뀜!
+
+2. 수동 설정 방법
+File - Preferences - Settings
+검색 창 : format
+Editor: Format On Save 체크
+검색 창 : Default format
+Editor: Default Formatter => Prettier - Code formatter 선택
+********************************************************************
+5. linting
+옷에 붙은 먼지떼기

@@ -1,0 +1,44 @@
+
+
+기술 스택
+
+#Front
+HTML
+CSS
+JavaScript
+jquery
+
+#Back
+Node.js - sequelize
+Express
+mysql
+
+#deployment
+ncp
+
+
+
+fullpage / aos 등 > 현목님
+cherrio
+chart.js
+puppeteer >> 효현님
+
+collaboration & tools
+Slack
+Figma
+Git
+Github
+Notion
+
+
+
+
+초반 
+figma로 페이지 구성과 기초 프레임 구상
+
+먼저 기능 구현 위주로 
+
+후반에 css를 입혔는데,
+반응형을 
+
+

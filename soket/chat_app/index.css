@@ -1,0 +1,50 @@
+html, body {
+  background-color: rgb(255, 255, 255);
+  text-align: center;
+}
+
+.chat-box {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  height: 100%;
+  border:2px solid rebeccapurple;
+}
+
+#chat-box-header {
+  height: 50px;
+  line-height: 50px;
+  background-color: rgb(82, 44, 185);
+  color: azure;
+  font-weight: bold;
+  font-size: larger;
+}
+.chat-box-body {
+  width: 100%;
+  height: 400px;
+  background-color: rgb(205, 205, 255);
+}
+.chat-input {
+  height: 80px;
+  line-height: 80px;
+  background-color: rgb(202, 202, 241);
+}
+.chat-input input {
+  background-color:  rgb(255, 255, 255);
+  border: none;
+  border-bottom: 4px solid rgb(177, 177, 255);
+  border-radius: 10px;
+  width: 60%;
+  height: 40px;
+  padding-left: 15px;
+}
+
+.chat-input button {
+  border: none;
+  border-bottom: 3px solid rgb(177, 177, 255);
+  border-radius: 10px;
+  background-color: rgb(246, 240, 255);
+  color: rgb(54, 0, 100);
+  width : 70px;
+  height: 45px;
+}
