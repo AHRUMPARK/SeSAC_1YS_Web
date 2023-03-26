@@ -1,11 +1,12 @@
 # 청년취업사관학교 용산 1기 풀 스택 웹 개발 강의 1번
 
 ## 📃 기초 
-<hr />
 <li>1. 기본 화면 구성 </li>
 <li>2. 라이브러리 사용 </li>
 <li>3. 서버와 통신하는 법 (CRUD)</li>
 
+
+## 📚 공부 목록
 ### FrontEnd
 <span>
 <img src="https://img.shields.io/badge/html5-E34F26?style=for-the-badge&logo=html5&logoColor=white" />
