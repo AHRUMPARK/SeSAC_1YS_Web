@@ -18,7 +18,7 @@
 <img src="https://img.shields.io/badge/jQuery-0769AD?style=for-the-badge&logo=jQuery&logoColor=white" />
 <img src="https://img.shields.io/badge/css-1572B6?style=for-the-badge&logo=css3&logoColor=white" />
 <img src="https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=TypeScript&logoColor=white" />
-</span>
+</span>   
 
 
 
@@ -29,15 +29,15 @@
 <img src="https://img.shields.io/badge/Sequelize-52B0E7?style=for-the-badge&logo=Sequelize&logoColor=white" />
 <img src="https://img.shields.io/badge/MySQL-4479A1?style=for-the-badge&logo=MySQL&logoColor=white" />
 <img src="https://img.shields.io/badge/Socket.io-000000?style=for-the-badge&logo=Socket.io&logoColor=white" />
-</span>
+</span>   
 
 
   
-## ✨ 실습 예제
+## ⌨️  실습 예제
 <li>달력</li>
 <li>방명록</li>
 <li>to do list</li>
 <li>css & BootStrap 사용법</li>
 <li>callback & promise 예제</li>
 <li>socket 채팅방 예제</li>
-<li>TypeScript React로 마이그레이션</li>
+<li>TypeScript React로 마이그레이션</li>   
