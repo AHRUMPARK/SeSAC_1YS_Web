@@ -1,5 +1,6 @@
 # 청년취업사관학교 용산 1기 풀 스택 웹 개발 기초 강의
 <br/><br/>
+<p><a href="https://codingnewbie.tistory.com/"> my blog 공부 정리 </a></p>
 ## 📃 목록 
 <li>1. 기본 화면 구성 </li>
 <li>2. 라이브러리 사용 </li>
