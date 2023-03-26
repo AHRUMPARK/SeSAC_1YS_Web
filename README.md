@@ -4,6 +4,8 @@
 <li>1. 기본 화면 구성 </li>
 <li>2. 라이브러리 사용 </li>
 <li>3. 서버와 통신하는 법 (REST API)</li>
+<li>4. socket </li>
+<li>5. 타입스크립트</li>
 
 
 
@@ -29,3 +31,9 @@
 <img src="https://img.shields.io/badge/Socket.io-000000?style=for-the-badge&logo=Socket.io&logoColor=white" />
 </span>
   
+## 📚 실습 예제
+<li>달력</li>
+<li>방명록</li>
+<li>to do list</li>
+<li>css & BootStrap 사용법</li>
+<li>callback & promise 예제</li>
