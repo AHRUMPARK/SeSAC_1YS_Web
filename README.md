@@ -37,3 +37,5 @@
 <li>to do list</li>
 <li>css & BootStrap 사용법</li>
 <li>callback & promise 예제</li>
+<li>socket 채팅방 예제</li>
+<li>TypeScript React로 마이그레이션</li>
