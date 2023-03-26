@@ -3,7 +3,9 @@
 ## 📃 기초 
 <li>1. 기본 화면 구성 </li>
 <li>2. 라이브러리 사용 </li>
-<li>3. 서버와 통신하는 법 (CRUD)</li>
+<li>3. 서버와 통신하는 법 (REST API)</li>
+
+
 
 
 ## 📚 공부 목록
@@ -15,6 +17,8 @@
 <img src="https://img.shields.io/badge/css-1572B6?style=for-the-badge&logo=css3&logoColor=white" />
 <img src="https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=TypeScript&logoColor=white" />
 </span>
+
+
 
 ### BackEnd
 <span>
