@@ -1,4 +1,4 @@
-# 청년취업사관학교 용산 1기 풀 스택 웹 개발 강의 1번
+# 청년취업사관학교 용산 1기 풀 스택 웹 개발 기초 강의
 
 ## 📃 기초 
 <li>1. 기본 화면 구성 </li>
@@ -30,8 +30,10 @@
 <img src="https://img.shields.io/badge/MySQL-4479A1?style=for-the-badge&logo=MySQL&logoColor=white" />
 <img src="https://img.shields.io/badge/Socket.io-000000?style=for-the-badge&logo=Socket.io&logoColor=white" />
 </span>
+
+
   
-## 📚 실습 예제
+## ✨ 실습 예제
 <li>달력</li>
 <li>방명록</li>
 <li>to do list</li>
