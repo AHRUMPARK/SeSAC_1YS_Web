@@ -4,10 +4,30 @@
 
 ## 📃 목록 
 <li>1. 기본 화면 구성 </li>
-<li>2. 라이브러리 사용 </li>
+<p>https://codingnewbie.tistory.com/8</p>
+<p>https://codingnewbie.tistory.com/12</p>
+<p>https://codingnewbie.tistory.com/32</p>
+<p>https://codingnewbie.tistory.com/33</p>
+<p>https://codingnewbie.tistory.com/34</p>
+<br/>
+<li>2. BootStrap 등 라이브러리 사용 </li>
+<p>https://codingnewbie.tistory.com/16</p>
+
+<br/>
 <li>3. 서버와 통신하는 법 (REST API)</li>
+<p>https://codingnewbie.tistory.com/27</p>
+<p>https://codingnewbie.tistory.com/35</p>
+<p>https://codingnewbie.tistory.com/36</p>
+<p>https://codingnewbie.tistory.com/40</p>
+<p>https://codingnewbie.tistory.com/42</p>
+<p>https://codingnewbie.tistory.com/44</p>
+<br/>
 <li>4. socket </li>
+<p>https://codingnewbie.tistory.com/88</p>
+<p>https://codingnewbie.tistory.com/90</p>
+<br/>
 <li>5. 타입스크립트</li>
+<p>https://codingnewbie.tistory.com/122</p>
 
 
 
@@ -39,9 +59,20 @@
 <br/><br/>
 ## ⌨️  실습 예제
 <li>달력</li>
+<p>https://codingnewbie.tistory.com/18</p>
+<br/>
 <li>방명록</li>
+<p>https://codingnewbie.tistory.com/47</p>
+<br/>
 <li>to do list</li>
+<p>https://codingnewbie.tistory.com/15</p>
+<br/>
 <li>css & BootStrap 사용법</li>
-<li>callback & promise 예제</li>
+<p>https://codingnewbie.tistory.com/16</p>
+<br/>
 <li>socket 채팅방 예제</li>
+<p>https://codingnewbie.tistory.com/88</p>
+<p>https://codingnewbie.tistory.com/90</p>
+<br/>
 <li>TypeScript React로 마이그레이션</li>   
+<p>https://codingnewbie.tistory.com/122</p>
