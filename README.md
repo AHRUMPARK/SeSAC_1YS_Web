@@ -1,6 +1,6 @@
 # 청년취업사관학교 용산 1기 풀 스택 웹 개발 기초 강의
 <br/>
-<div style="display: flex; align-items: flex-start;"><img src="https://techstack-generator.vercel.app/js-icon.svg" alt="icon" width="60" height="60" /><img src="https://techstack-generator.vercel.app/react-icon.svg" alt="icon" width="60" height="60" /><img src="https://techstack-generator.vercel.app/redux-icon.svg" alt="icon" width="60" height="60" /><img src="https://techstack-generator.vercel.app/ts-icon.svg" alt="icon" width="60" height="60" /><img src="https://techstack-generator.vercel.app/restapi-icon.svg" alt="icon" width="60" height="60" /><img src="https://techstack-generator.vercel.app/mysql-icon.svg" alt="icon" width="60" height="60" /></div>
+<div style="display: flex; align-items: flex-start;"><img src="https://techstack-generator.vercel.app/js-icon.svg" alt="icon" width="60" height="60" /><img src="https://techstack-generator.vercel.app/ts-icon.svg" alt="icon" width="60" height="60" /><img src="https://techstack-generator.vercel.app/restapi-icon.svg" alt="icon" width="60" height="60" /><img src="https://techstack-generator.vercel.app/mysql-icon.svg" alt="icon" width="60" height="60" /></div>
 <p><a href="https://codingnewbie.tistory.com/"> my blog 공부 정리 </a></p>
 
 ## 📃 목록 
